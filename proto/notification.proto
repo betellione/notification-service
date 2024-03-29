@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package notification;
+
+option go_package = "./;notification";
+
+service NotificationService {
+  rpc SendErrorNotification(ErrorNotification) returns (NotificationResponse);
+}
+
+message ErrorNotification {
+  string errorMessage = 1;
+}
+
+message NotificationResponse {
+  bool success = 1;
+}
